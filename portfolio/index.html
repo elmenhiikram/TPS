@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Ikram El Menhi</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            color: #333;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: #005A9C;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .logo span {
+            color: #808080;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex: 1;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-btn {
+            background: #808080;
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-left: auto;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+            background: white;
+            flex: 1;
+        }
+
+        .hero-text {
+            max-width: 500px;
+            font-size: 20px;
+        }
+
+        .hero-text h1 {
+            font-size: 40px;
+            color: #005A9C;
+            margin: 10px 0;
+        }
+
+        .hero-text h1 span {
+            color: #808080;
+        }
+
+        .hero-text h2 {
+            font-size: 28px;
+            color: #666;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .black {
+            background: #005A9C;
+            color: white;
+        }
+
+        .hero-image img {
+            width: 250px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Ikram <span>El Menhi</span></div>
+            <ul>
+                <li><a href="index.html">Portfolio</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="projet.html">Projects</a></li>
+                <li><a href="education.html">Education</a></li>
+            </ul>
+            <a href="contact.html" class="contact-btn">Contact Me</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <p>Hello,</p>
+            <h1>I am <span>Ikram El Menhi</span></h1>
+            <h2>Data Science and Computer Engineering student</h2>
+            <p class="description">
+               I am passionate about software development and data analysis, with practical experience in mobile and web development. I am motivated to contribute to groundbreaking projects in artificial intelligence and information systems management.
+            </p>
+            <div class="buttons">
+                <a href="cvenglish.pdf" class="btn black">View my CV</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="ikram.png" alt="Ikram El Menhi">
+        </div>
+    </section>
+</body>
+</html>
