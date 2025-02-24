@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up / Log In - Ikram El Menhi</title>
+    <style>
+        body {
+            background: #f4f4f4;
+            color: #333;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        header {
+            background: #005A9C;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .logo span {
+            color: #808080;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex: 1;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-btn {
+            background: #808080;
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-left: auto;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .tab-button {
+            background: #005A9C;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+
+        .tab-button:hover {
+            background: #004080;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            display: none;
+        }
+
+        .form-container.active {
+            display: block;
+        }
+
+        .form-container h2 {
+            color: #005A9C;
+            font-size: 28px;
+            border-bottom: 2px solid #005A9C;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-container input, .form-container select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-container .error {
+            color: red;
+            font-size: 12px;
+        }
+
+        .form-container button {
+            background: #005A9C;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .form-container button:hover {
+            background: #004080;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Ikram <span>El Menhi</span></div>
+            <ul>
+                <li><a href="index.html">Portfolio</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="projet.html">Projects</a></li>
+                <li><a href="education.html">Education</a></li>
+            </ul>
+            <a href="contact.html" class="contact-btn">Contact Me</a>
+        </nav>
+    </header>
+
+    <div class="tabs">
+        <button class="tab-button" onclick="showForm('signup')">Sign Up</button>
+        <button class="tab-button" onclick="showForm('login')">Log In</button>
+    </div>
+
+    <div id="signup-form" class="form-container">
+        <h2>Sign Up</h2>
+        <form id="signup-form-content">
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" name="first-name" required>
+            <div class="error" id="first-name-error"></div>
+
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" name="last-name" required>
+            <div class="error" id="last-name-error"></div>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <div class="error" id="email-error"></div>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <div class="error" id="password-error"></div>
+
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+            <div class="error" id="confirm-password-error"></div>
+
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" required>
+            <div class="error" id="phone-error"></div>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="picture">Profile Picture:</label>
+            <input type="file" id="picture" name="picture" accept="image/*" required>
+
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+    <div id="login-form" class="form-container">
+        <h2>Log In</h2>
+        <form id="login-form-content">
+            <label for="login-email">Email:</label>
+            <input type="email" id="login-email" name="email" required>
+            <div class="error" id="login-email-error"></div>
+
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" name="password" required>
+            <div class="error" id="login-password-error"></div>
+
+            <button type="submit">Log In</button>
+        </form>
+    </div>
+
+    <script>
+        function showForm(form) {
+            // Hide both forms
+            document.getElementById("signup-form").classList.remove("active");
+            document.getElementById("login-form").classList.remove("active");
+
+            // Show the selected form
+            if (form === 'signup') {
+                document.getElementById("signup-form").classList.add("active");
+            } else if (form === 'login') {
+                document.getElementById("login-form").classList.add("active");
+            }
+        }
+
+        document.getElementById("signup-form-content").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let formValid = true;
+            const errorMessages = document.querySelectorAll('.error');
+            errorMessages.forEach(msg => msg.textContent = '');
+
+            // Sign Up Form Validation
+            const firstName = document.getElementById("first-name").value;
+            if (firstName.trim() === "") {
+                document.getElementById("first-name-error").textContent = "First name is required.";
+                formValid = false;
+            }
+
+            const lastName = document.getElementById("last-name").value;
+            if (lastName.trim() === "") {
+                document.getElementById("last-name-error").textContent = "Last name is required.";
+                formValid = false;
+            }
+
+            const email = document.getElementById("email").value;
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!email.match(emailPattern)) {
+                document.getElementById("email-error").textContent = "Invalid email format.";
+                formValid = false;
+            }
+
+            const password = document.getElementById("password").value;
+            if (password.length < 6) {
+                document.getElementById("password-error").textContent = "Password must be at least 6 characters.";
+                formValid = false;
+            }
+
+            const confirmPassword = document.getElementById("confirm-password").value;
+            if (password !== confirmPassword) {
+                document.getElementById("confirm-password-error").textContent = "Passwords do not match.";
+                formValid = false;
+            }
+
+            const phone = document.getElementById("phone").value;
+            const phonePattern = /^[0-9]{10}$/;
+            if (!phone.match(phonePattern)) {
+                document.getElementById("phone-error").textContent = "Phone number must be 10 digits.";
+                formValid = false;
+            }
+
+            if (formValid) {
+                alert("Welcome to the website, " + firstName + "!");
+                document.getElementById("signup-form-content").reset();
+            }
+        });
+
+        document.getElementById("login-form-content").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let formValid = true;
+            const errorMessages = document.querySelectorAll('.error');
+            errorMessages.forEach(msg => msg.textContent = '');
+
+            // Log In Form Validation
+            const loginEmail = document.getElementById("login-email").value;
+            if (!loginEmail.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/)) {
+                document.getElementById("login-email-error").textContent = "Invalid email format.";
+                formValid = false;
+            }
+
+            const loginPassword = document.getElementById("login-password").value;
+            if (loginPassword.length < 6) {
+                document.getElementById("login-password-error").textContent = "Password must be at least 6 characters.";
+                formValid = false;
+            }
+
+            if (formValid) {
+                alert("Logged in successfully!");
+                document.getElementById("login-form-content").reset();
+            }
+        });
+    </script>
+</body>
+</html>
