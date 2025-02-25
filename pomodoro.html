@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer & Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="apps.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Pomodoro Timer -->
+        <section class="pomodoro-timer">
+            <h1 class="title">Pomodoro Timer</h1>
+            <hr>
+            <p class="timer" id="pomodoro-timer">25:00</p>
+            <div class="button-wrapper">
+                <button id="start-pomodoro">Start</button>
+                <button id="stop-pomodoro">Pause</button>
+                <button id="reset-pomodoro">Reset</button>
+            </div>
+        </section>
+
+        <!-- Task Manager -->
+        <section class="task-manager">
+            <h2>Task Manager</h2>
+            <input type="text" id="task-input" placeholder="Add a task...">
+            <button id="add-task">Add Task</button>
+            <ul id="task-list"></ul>
+        </section>
+    </div> 
+</body>
+</html>
+
+
