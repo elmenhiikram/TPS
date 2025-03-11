@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link href="style.css?t=123" rel="stylesheet" />
+    <title>BOOKS</title>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>
+        <div id="page-banner">
+          <h1 class="title">BOOKS</h1>
+          <p>Books for students</p>
+          <form id="search-books">
+            <input type="text" placeholder="Search books..." />
+          </form>
+        </div>
+      </header>
+
+      <div id="demo">
+        <h2 class="title">Books to Read</h2>
+        <ul></ul>
+      </div>
+
+      <form id="add-book">
+        <input type="text" id="book-name" placeholder="Book name..." required />
+        <input type="text" id="book-author" placeholder="Author..." required />
+        <input type="number" id="book-price" placeholder="Price ($)" required />
+        <button>Add</button>
+      </form>
+  </body>
+</html>

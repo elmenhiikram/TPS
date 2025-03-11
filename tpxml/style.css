@@ -1,0 +1,140 @@
+/* Base */
+body {
+  font-family: Tahoma, sans-serif;
+  color: #444;
+  letter-spacing: 1px;
+  background-color: #f9f9f9;
+}
+
+h1, h2 {
+  font-weight: normal;
+}
+
+/* Wrapper */
+#wrapper {
+  width: 90%;
+  max-width: 960px;
+  margin: 20px auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+}
+
+/* Page Banner */
+#page-banner {
+  background: #f4f4f4;
+  padding: 20px;
+  border-bottom: 2px solid #ddd;
+  text-align: center;
+}
+
+#page-banner h1 {
+  font-size: 28px;
+  color: #333;
+}
+
+#page-banner p {
+  font-size: 16px;
+  color: #666;
+}
+
+#page-banner input {
+  width: 80%;
+  max-width: 400px;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+/* Books List */
+#demo ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#demo li {
+  padding: 15px;
+  margin-bottom: 12px;
+  background-color: #fafafa;
+  border-left: 5px solid #9361bf;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+#demo li span {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+/* Book Title */
+#demo li span:first-child {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Author */
+#demo li span:nth-child(2) {
+  color: #666;
+}
+
+/* Price */
+#demo li span:nth-child(3) {
+  color: #9361bf;
+}
+
+/* Delete Button */
+.delete {
+  background: #9361bf;
+  padding: 6px 12px;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 14px;
+  border: none;
+  margin-left: 10px;
+}
+
+.delete:hover {
+  background: #333;
+}
+
+/* Add Book Form */
+#add-book {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+#add-book input, #add-book button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+#add-book button {
+  background-color: #9361bf;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#add-book button:hover {
+  background-color: #333;
+}
+
+
+  
