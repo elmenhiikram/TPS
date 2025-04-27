@@ -1,4 +1,7 @@
 <?php
+$firstname = $lastname = $email = $phonenumber = $age = "";
+$uploaded_file_path = "";
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $firstname = htmlspecialchars(trim($_POST['firstname']));
     $lastname = htmlspecialchars(trim($_POST['lastname']));
@@ -7,6 +10,28 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $age = htmlspecialchars(trim($_POST['age']));
     $password = htmlspecialchars(trim($_POST['password']));
     $confirm_password = htmlspecialchars(trim($_POST['confirm_password']));
+
+    $upload_dir = "uploads/";
+
+    if (isset($_FILES['profile_picture']) && $_FILES['profile_picture']['error'] === UPLOAD_ERR_OK) {
+        $file_tmp = $_FILES['profile_picture']['tmp_name'];
+        $file_name = basename($_FILES['profile_picture']['name']);
+        $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+        $allowed_ext = ['jpg', 'jpeg', 'png', 'gif'];
+
+        if (in_array($file_ext, $allowed_ext)) {
+            $new_name = uniqid('img_') . "." . $file_ext;
+            $destination = $upload_dir . $new_name;
+
+            if (!is_dir($upload_dir)) {
+                mkdir($upload_dir, 0755, true);
+            }
+
+            if (move_uploaded_file($file_tmp, $destination)) {
+                $uploaded_file_path = $destination;
+            }
+        }
+    }
 }
 ?>
 
@@ -52,20 +77,34 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             border-left: 4px solid #007bff;
             margin: 8px 0;
         }
+
+        .info img {
+            margin-top: 10px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h2>Form Data Received</h2>
-        <div class="info">
-            <p><strong>First Name:</strong> <?= $firstname ?></p>
-            <p><strong>Last Name:</strong> <?= $lastname ?></p>
-            <p><strong>Email:</strong> <?= $email ?></p>
-            <p><strong>Phone Number:</strong> <?= $phonenumber ?></p>
-            <p><strong>Age:</strong> <?= $age ?></p>
-        </div>
+<div class="container">
+    <h2>Form Data Received</h2>
+    <div class="info">
+        <p><strong>First Name:</strong> <?= $firstname ?></p>
+        <p><strong>Last Name:</strong> <?= $lastname ?></p>
+        <p><strong>Email:</strong> <?= $email ?></p>
+        <p><strong>Phone Number:</strong> <?= $phonenumber ?></p>
+        <p><strong>Age:</strong> <?= $age ?></p>
+
+        <?php if ($uploaded_file_path): ?>
+            <p><strong>Profile Picture:</strong><br>
+                <img src="<?= $uploaded_file_path ?>" alt="Profile Picture">
+            </p>
+        <?php endif; ?>
     </div>
+</div>
 
 </body>
 </html>
+

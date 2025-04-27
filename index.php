@@ -68,8 +68,8 @@
 <body>
     <div class="container">
         <h2>Registration Form</h2>
-        <form action="cible.php" method="POST" onsubmit="return validateForm()">
-           
+        <form action="cible.php" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+
             <label for="firstname">First Name:</label>
             <input type="text" id="firstname" name="firstname" placeholder="First Name">
 
@@ -142,4 +142,3 @@
     </script>
 </body>
 </html>
-
